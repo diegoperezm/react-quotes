@@ -1,28 +1,52 @@
-.App {
-  text-align: center;
+.head {
+    height: 4.25em;
+    text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+h1 {
+    font-size: 1em;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.content {
+    position: relative;
+    margin-left: 5%;
+    width: 90%;
+    height: 80%;
 }
 
-.App-title {
-  font-size: 1.5em;
+.paper {
+    color: red;
+    margin-top: 1.14583333em;
+    bottom: 0;
+    display: block;
+    padding-left: 10.5%;
+    padding-right: 10.5%;
+    text-align: justify;
+    font-size: 3em;
 }
 
-.App-intro {
-  font-size: large;
+strong {
+    color: blue;
+    font-size: 1em;
+    float: right;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+button {
+    font-family: 'Handlee', cursive;
+    color: rgb(155, 55, 194);
+    font-size: 2em;
+    bottom: 0;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    outline: focus;
+    margin-top: 2%;
+    margin-left: 70%;
 }
+
+button:hover {
+    cursor: pointer;
+}
+
+

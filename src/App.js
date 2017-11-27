@@ -31,17 +31,19 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <header>
+      <div className="content">
+        <header className="head">
           <h1>
             <span>Quotes</span>
           </h1>
         </header>
         <div>
-          <blockquote>
+          <blockquote className="paper">
             <p>{this.state.text}</p>
             <footer>
-              <cite>{this.state.author}</cite>
+              <cite>
+                <strong>{this.state.author} </strong>
+              </cite>
             </footer>
           </blockquote>
           <button type="button">Get Quote</button>
