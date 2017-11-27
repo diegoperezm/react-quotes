@@ -1,15 +1,34 @@
 import React, { Component } from "react";
+import fetchJsonp from "fetch-jsonp";
 import "./App.css";
+
+const URL = "https://api.forismatic.com/api/1.0/";
+const METHOD = "?method=getQuote";
+const FORMAT = "&format=jsonp";
+const LANG = "&lang=en&";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text:
-        "You cannot step twice into the same river, for other waters are continually flowing in.",
-      author: "Heraclitus"
+      text: "",
+      author: ""
     };
   }
+
+  componentDidMount() {
+    fetchJsonp(`${URL}${METHOD}${FORMAT}${LANG}`, {
+      jsonpCallback: "jsonp"
+    })
+      .then(resp => resp.json())
+      .then(data =>
+        this.setState({
+          text: data.quoteText,
+          author: data.quoteAuthor
+        })
+      );
+  }
+
   render() {
     return (
       <div>
