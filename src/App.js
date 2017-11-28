@@ -14,19 +14,23 @@ class App extends Component {
       text: "",
       author: ""
     };
+    this.setData = this.setData.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
+  setData(data) {
+    this.setState({
+      text: data.quoteText,
+      author: data.quoteAuthor
+    });
+  }
+
+  handleClick() {
     fetchJsonp(`${URL}${METHOD}${FORMAT}${LANG}`, {
       jsonpCallback: "jsonp"
     })
       .then(resp => resp.json())
-      .then(data =>
-        this.setState({
-          text: data.quoteText,
-          author: data.quoteAuthor
-        })
-      );
+      .then(data => this.setData(data));
   }
 
   render() {
@@ -46,7 +50,9 @@ class App extends Component {
               </cite>
             </footer>
           </blockquote>
-          <button type="button">Get Quote</button>
+          <button type="button" onClick={this.handleClick}>
+            Get Quote
+          </button>
         </div>
       </div>
     );
